@@ -78,6 +78,15 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_marginTop="4dp"
             android:text="@string/forgotpass" />
+
+        <TextView
+            android:id="@+id/signup_field"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not Yet Account? Register here" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

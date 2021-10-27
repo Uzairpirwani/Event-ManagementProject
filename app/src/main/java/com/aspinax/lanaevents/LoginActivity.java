@@ -55,6 +55,16 @@ public class LoginActivity extends AppCompatActivity {
         final TextInputEditText emailView = findViewById(R.id.email);
         final TextInputEditText passwordView = findViewById(R.id.password);
         final TextView forgotpass = findViewById(R.id.forgot_pass);
+        final TextView signupField = findViewById(R.id.signup_field);
+
+        signupField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +79,12 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-                                            db.read("users", mAuth.getUid(), Person.class, 0);
-                                        } else {
+                                            Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(LoginActivity.this, AgentMainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                        else {
                                             Toast.makeText(getApplicationContext(), getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
                                         }
                                     }

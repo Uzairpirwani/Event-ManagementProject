@@ -78,9 +78,8 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Person.saveUser(mAuth, fName, lName, email, phoneNumber, orgName, FieldValue.serverTimestamp());
-                                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    Toast.makeText(getApplicationContext(),"Registered Succesfully",Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(getApplicationContext(), getString(R.string.signup_failed), Toast.LENGTH_SHORT).show();

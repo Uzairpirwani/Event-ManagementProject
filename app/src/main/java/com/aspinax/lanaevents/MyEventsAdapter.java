@@ -58,10 +58,10 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHo
         assert ticket != null;
         db = new Database(new AsyncResponse() {
             @Override
-            public void resultHandler(Map<String, Object> result, int resultCode) {
-                if (resultCode == 0) {
-                    final Event event = (Event) result.get(ticket.eventId);
-                    assert event != null;
+                    public void resultHandler(Map<String, Object> result, int resultCode) {
+                        if (resultCode == 0) {
+                            final Event event = (Event) result.get(ticket.eventId);
+                            assert event != null;
                     viewHolder.event_nameView.setText(event.name);
                     SimpleDateFormat startDate = new SimpleDateFormat("dd MMMM yyyy", Locale.US);
                     viewHolder.startView.setText(startDate.format(event.start.toDate()));
